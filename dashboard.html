@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home Security App - Dashboard</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .login-section, .dashboard-section {
+      display: none;
+    }
+    #passwordPrompt {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      z-index: 1050; /* Ensures it appears above other elements */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Login Section -->
+    <div class="login-section" id="loginSection">
+      <h1 class="text-center">Login</h1>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard-section" id="dashboardSection">
+      <h1 class="text-center">Dashboard</h1>
+
+      <!-- Guest Network Section -->
+      <div id="guestNetwork" class="network-section my-5">
+        <h2>Guest Network</h2>
+        <p>Guests can access smart speakers and guest Wi-Fi.</p>
+        <ul id="guestDeviceList">
+          <li>Smart Speaker <button id="connectSmartSpeaker" class="btn btn-info btn-sm connect-btn" data-device="Smart Speaker" style="display:none;">Connect</button></li>
+          <li>Guest Wi-Fi <button id="connectGuestWifi" class="btn btn-info btn-sm connect-btn" data-device="Guest Wi-Fi" style="display:none;">Connect</button></li>
+        </ul>
+        <button class="btn btn-info" id="viewGuestDevicesBtn" data-toggle="modal" data-target="#guestDevicesModal">View Devices</button>
+      </div>
+
+      <!-- IoT Devices Network Section -->
+      <div id="iotNetwork" class="network-section my-5">
+        <h2>IoT Devices Network</h2>
+        <p>Users and Admins can access IoT devices like smart cameras and thermostats.</p>
+        <ul id="iotDeviceList">
+          <li>Smart Camera <button id="connectSmartCamera" class="btn btn-info btn-sm connect-btn" data-device="Smart Camera" style="display:none;">Connect</button></li>
+          <li>Thermostat <button id="connectThermostat" class="btn btn-info btn-sm connect-btn" data-device="Thermostat" style="display:none;">Connect</button></li>
+        </ul>
+        <button class="btn btn-info" id="viewIotDevicesBtn" data-toggle="modal" data-target="#iotDevicesModal">View Devices</button>
+      </div>
+
+      <!-- Personal Devices Network Section -->
+      <div id="personalNetwork" class="network-section my-5">
+        <h2>Personal Devices Network</h2>
+        <p>Only Admin can access the personal device to control and manage the security of other IoT devices</p>
+        <ul id="personalDeviceList">
+          <li>Laptop <button id="connectLaptop" class="btn btn-info btn-sm connect-btn" data-device="Laptop" style="display:none;">Connect</button></li>
+          <li><button id="modalControlManageDevices" class="btn btn-info btn-sm">Control and manage other devices</button></li>
+          <li><a href="attack.html"><button  class="btn btn-info btn-sm">Launch Attack on Smart Camera</button></li></a>
+        </ul>
+        <button class="btn btn-info" id="viewPersonalDevicesBtn" data-toggle="modal" data-target="#personalDevicesModal">View Devices</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guest Devices Modal -->
+  <div class="modal fade" id="guestDevicesModal" tabindex="-1" aria-labelledby="guestDevicesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="guestDevicesModalLabel">Guest Devices</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="https://www.stuff.tv/wp-content/uploads/sites/2/2021/02/Stuff-Smart-Home-Speakers-2022-LEAD.png?resize=1080,720" alt="Smart Speaker" class="img-fluid mb-2">
+            <p>Smart Speaker <button id="modalConnectSmartSpeaker" class="btn btn-info btn-sm connect-btn" data-device="Smart Speaker">Connect</button></p>
+          </div>
+          <div class="text-center">
+            <img src="https://paykobo.com/media/catalog/product/image/381391a3/wavlink-531g3-1200mbps-smart-wifi-router-b07pkkmys5.jpg.mst.webp?width=700&height=700&store=default&image-type=image" alt="Guest Wi-Fi" class="img-fluid mb-2">
+            <p>Guest Wi-Fi <button id="modalConnectGuestWifi" class="btn btn-info btn-sm connect-btn" data-device="Guest Wi-Fi">Connect</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IoT Devices Modal -->
+  <div class="modal fade" id="iotDevicesModal" tabindex="-1" aria-labelledby="iotDevicesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="iotDevicesModalLabel">IoT Devices</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfcNExFccHBvzB6qcMVz54K7DfZPAvteCOxQ&s" alt="Smart Camera" class="img-fluid mb-2">
+            <p>Smart Camera <button id="modalConnectSmartCamera" class="btn btn-info btn-sm connect-btn" data-device="Smart Camera">Connect</button></p>
+          </div>
+          <div class="text-center">
+            <img src="https://cdn.mos.cms.futurecdn.net/Ek2kyrb7BqbAZXepGvvVYL.jpg" alt="Thermostat" class="img-fluid mb-2">
+            <p>Thermostat <button id="modalConnectThermostat" class="btn btn-info btn-sm connect-btn" data-device="Thermostat">Connect</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Devices Modal -->
+  <div class="modal fade" id="personalDevicesModal" tabindex="-1" aria-labelledby="personalDevicesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="personalDevicesModalLabel">Personal Device</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/12/06/Photos/Processed/AppleiPadPro-kThD--621x414@LiveMint.jpg" alt="Laptop" class="img-fluid mb-2">
+            <p>Laptop <button id="modalConnectLaptop" class="btn btn-info btn-sm connect-btn" data-device="Laptop">Connect</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Prompt Modal -->
+  <div id="passwordPrompt">
+    <form id="passwordPromptForm">
+      <div class="form-group">
+        <label for="devicePassword">Enter device password:</label>
+        <input type="password" id="devicePassword" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      <button type="button" class="btn btn-secondary btn-block" id="cancelPasswordPrompt">Cancel</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="dashboard.js"></script>
+  <script>
+    // JavaScript for showing and hiding sections
+    $(document).ready(function() {
+      // Simulate login for demonstration
+      $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
+        $('.login-section').hide();
+        $('.dashboard-section').show();
+      });
+
+      // Show password prompt when connecting to a device
+      $('.connect-btn').on('click', function() {
+        $('#passwordPrompt').show();
+      });
+
+      // Handle password prompt submission
+      $('#passwordPromptForm').on('submit', function(e) {
+        e.preventDefault();
+        // Validate password here (this is a placeholder for demo purposes)
+        $('#passwordPrompt').hide();
+        alert('Password submitted!');
+        // Add actual device connection logic here
+      });
+
+      // Cancel password prompt
+      $('#cancelPasswordPrompt').on('click', function() {
+        $('#passwordPrompt').hide();
+      });
+    });
+  </script>
+</body>
+</html>

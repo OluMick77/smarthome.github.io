@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home IoT Security Awareness</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .hero {
+      background: url('https://cybersecurityventures.com/wp-content/uploads/2021/09/PHOTO-GRID-LOCK2.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+    }
+    .hero h1, .hero h2 {
+      margin: 0;
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .section h2 {
+      margin-bottom: 30px;
+    }
+    .section img {
+      max-width: 100%;
+    }
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer a {
+      margin: 0 10px;
+    }
+    .cta-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Smart Home Security</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Protect Your Smart Home IoT Devices from Cyber Threats</h1>
+      <h2>Learn how to mitigate common cyberattacks and safeguard your connected devices.</h2>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="section">
+    <div class="container">
+      <h2>Introduction to IoT Security</h2>
+      <p>IoT devices are becoming a significant part of our daily lives, making it crucial to protect them from cyber threats. This website provides essential information and strategies to secure your smart home devices.</p>
+    </div>
+  </section>
+
+  <!-- Attack Awareness Sections -->
+  <section class="section">
+    <div class="container">
+      <h2>Common Cyberattacks and How to Mitigate Them</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Brute Force Attacks</h3>
+          <p>Brute Force attacks involve attempting various passwords to gain unauthorized access to devices.</p>
+          <h4>Mitigation Strategies:</h4>
+          <ul>
+            <li>Use strong, unique passwords for each device.</li>
+            <li>Implement multi-factor authentication (MFA).</li>
+            <li>Regularly update device firmware.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Phishing Attacks</h3>
+          <p>Phishing involves tricking individuals into revealing sensitive information through deceptive emails or messages.</p>
+          <h4>Mitigation Strategies:</h4>
+          <ul>
+            <li>Educate family members about recognizing phishing attempts.</li>
+            <li>Do not click on suspicious links or download attachments from unknown sources.</li>
+            <li>Use email filtering and anti-phishing tools.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h3>DDoS Attacks</h3>
+          <p>Distributed Denial-of-Service (DDoS) attacks flood a network with traffic, causing service interruptions.</p>
+          <h4>Mitigation Strategies:</h4>
+          <ul>
+            <li>Use a robust firewall and intrusion detection system (IDS).</li>
+            <li>Implement rate limiting on your network.</li>
+            <li>Keep your router and IoT devices' firmware up to date.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h3>SQL Injection Attacks</h3>
+          <p>SQL Injection attacks exploit vulnerabilities in a system's database to access unauthorized data.</p>
+          <h4>Mitigation Strategies:</h4>
+          <ul>
+            <li>Use input validation and parameterized queries in your IoT devices' software.</li>
+            <li>Regularly update device software to patch vulnerabilities.</li>
+            <li>Use Web Application Firewalls (WAFs) to protect against SQL injections.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Tips Section -->
+  <section class="section">
+    <div class="container">
+      <h2>General Security Tips</h2>
+      <ul>
+        <li>Regularly change passwords.</li>
+        <li>Secure your home Wi-Fi network.</li>
+        <li>Disable unused features on IoT devices.</li>
+        <li>Monitor your network for suspicious activities.</li>
+      </ul>
+      <h2>Best Practices for IoT Security</h2>
+      <ul>
+        <li>Segment IoT devices on a separate network.</li>
+        <li>Use a VPN for remote access to your home network.</li>
+        <li>Conduct regular security audits of your devices.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Interactive Section -->
+<section class="section">
+  <div class="container">
+    <h2>Interactive Elements</h2>
+    
+    <!-- Self-Assessment Quiz -->
+    <div id="quiz">
+      <h3>Self-Assessment Quiz</h3>
+      <p>Test your knowledge of IoT security with our quiz!</p>
+      
+      <form id="quizForm">
+        <div class="form-group">
+          <label for="q1">1. What is a common method to protect against brute force attacks?</label><br>
+          <input type="radio" name="q1" value="a"> Use a weak password<br>
+          <input type="radio" name="q1" value="b"> Implement multi-factor authentication<br>
+          <input type="radio" name="q1" value="c"> Share your password with others<br>
+        </div>
+
+        <div class="form-group">
+          <label for="q2">2. How can phishing attacks be mitigated?</label><br>
+          <input type="radio" name="q2" value="a"> Educate family members about phishing<br>
+          <input type="radio" name="q2" value="b"> Click on suspicious links<br>
+          <input type="radio" name="q2" value="c"> Ignore all emails<br>
+        </div>
+
+        <div class="form-group">
+          <label for="q3">3. What is the purpose of a Web Application Firewall (WAF)?</label><br>
+          <input type="radio" name="q3" value="a"> To allow unauthorized access<br>
+          <input type="radio" name="q3" value="b"> To prevent SQL injection attacks<br>
+          <input type="radio" name="q3" value="c"> To block all internet traffic<br>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit Quiz</button>
+      </form>
+
+      <div id="quizResult" style="margin-top: 20px;"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Smart Home Security. All rights reserved.</p>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      <div>
+        <a href="#" class="social-icon">Facebook</a>
+        <a href="#" class="social-icon">Twitter</a>
+        <a href="#" class="social-icon">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <script>
+    function calculateScore() {
+      const quizForm = document.getElementById('quizForm');
+      const quizResult = document.getElementById('quizResult');
+      let score = 0;
+      const totalQuestions = 3;
+  
+      const answers = {
+        q1: 'b',
+        q2: 'a',
+        q3: 'b'
+      };
+  
+      const formData = new FormData(quizForm);
+      for (const [question, answer] of formData.entries()) {
+        if (answers[question] === answer) {
+          score++;
+        }
+      }
+  
+      quizResult.innerHTML = `<h4>Your score: ${score} out of ${totalQuestions}</h4>`;
+    }
+  </script>
+</body>
+</html>
